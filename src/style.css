@@ -110,7 +110,7 @@ header ul {
 /* Main section styles */
 main {
   padding: 2rem;
-  background: #fff;
+  background: #0c0910;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
@@ -142,50 +142,144 @@ main .item img {
   object-position: center;
 }
 
-/* Transitions */
+/* Title cards styles */
+main .title {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: min-content;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+main .title h1 {
+  font-size: 1.5rem;
+  font-family: "dunbar-tall", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 34px;
+  color: #eee;
+  margin-bottom: 1rem;
+}
+
+main span {
+  color: #b2001c;
+}
+
+/* Base styles */
 .list-cards {
   transform-style: preserve-3d;
   transform: perspective(1000px);
 }
 
+/* Individual styles for each card */
 .list-cards .item {
   transition: 0.5s;
-  filter: brightness(0);
+  position: relative;
+}
+
+.list-cards .item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+/* Custom color overlay for each card */
+.list-cards .item:nth-child(1)::before {
+  background-color: #9b4bff; /* Bright purple */
+  opacity: 0.8;
+}
+
+.list-cards .item:nth-child(2)::before {
+  background-color: #4b83ff; /* Bright blue */
+  opacity: 0.8;
+}
+
+.list-cards .item:nth-child(3)::before {
+  background-color: #ff4b4b; /* Bright red */
+  opacity: 0.8;
+}
+
+.list-cards .item:nth-child(4)::before {
+  background-color: #4bff91; /* Bright green */
+  opacity: 0.8;
+}
+
+.list-cards .item:nth-child(5)::before {
+  background-color: #ffb54b; /* Bright orange */
+  opacity: 0.8;
+}
+
+/* Hover effects */
+.list-cards .item:hover::before {
+  opacity: 0; /* Remove color overlay on hover to show original image */
 }
 
 .list-cards .item:hover {
-  filter: brightness(1);
   transform: translateZ(200px);
 }
 
+/* Effects on adjacent cards when hovering */
 .list-cards .item:hover + * {
-  filter: brightness(0.6);
   transform: translateZ(150px) rotateY(40deg);
 }
 
+.list-cards .item:hover + * ::before {
+  opacity: 0.6;
+}
+
 .list-cards .item:hover + * + * {
-  filter: brightness(0.4);
   transform: translateZ(70px) rotateY(20deg);
 }
 
+.list-cards .item:hover + * + * ::before {
+  opacity: 0.4;
+}
+
 .list-cards .item:hover + * + * + * {
-  filter: brightness(0.2);
   transform: translateZ(30px) rotateY(10deg);
 }
 
+.list-cards .item:hover + * + * + * ::before {
+  opacity: 0.2;
+}
+
+/* Effects on previous cards when hovering */
 .list-cards .item:has(+ *:hover) {
-  filter: brightness(0.6);
   transform: translateZ(150px) rotateY(-40deg);
 }
 
+.list-cards .item:has(+ *:hover)::before {
+  opacity: 0.6;
+}
+
 .list-cards .item:has(+ * + *:hover) {
-  filter: brightness(0.4);
   transform: translateZ(70px) rotateY(-20deg);
 }
 
+.list-cards .item:has(+ * + *:hover)::before {
+  opacity: 0.4;
+}
+
 .list-cards .item:has(+ * + * + *:hover) {
-  filter: brightness(0.2);
   transform: translateZ(30px) rotateY(-10deg);
+}
+
+.list-cards .item:has(+ * + * + *:hover)::before {
+  opacity: 0.2;
+}
+
+/* Ensure images fill their containers */
+.list-cards .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Responsive settings */
