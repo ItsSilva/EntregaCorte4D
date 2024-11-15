@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* Previene scroll horizontal en todo el body */
+  width: 100%; /* Asegura que el body tome el ancho completo */
+}
+
+header {
+  color: #fff;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  width: 100%; /* Asegura que el header tome el ancho completo */
+}
+
+header div {
+  color: #fff;
+  font-family: "gandur-new", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 34px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-family: "dunbar-tall", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Carousel specific styles */
+.carousel {
+  width: 100%; /* Cambiado de 100vw a 100% */
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: -50px;
+}
+
+.carousel .list {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .item {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.carousel .item img.fruit {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.carousel .item .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 12rem;
+  color: #eee;
+  font-weight: 900;
+  font-family: system-ui;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.carousel .item.active {
+  display: block;
+}
+
+.carousel .item.hidden {
+  display: block;
+  pointer-events: none;
+  background-color: transparent;
+  z-index: 1;
+}
+
+/* Main section styles */
+main {
+  padding: 2rem;
+  background: #fff;
+  overflow: hidden; /* Cambiado de overflow-x: auto a overflow: hidden */
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no añada al ancho */
+}
+
+main .list-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: min-content;
+  margin: 0 auto;
+  max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+}
+
+main .item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+main .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Transitions */
+.list-cards {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.list-cards .item {
+  transition: 0.5s;
+  filter: brightness(0);
+}
+
+.list-cards .item:hover {
+  filter: brightness(1);
+  transform: translateZ(200px);
+}
+
+.list-cards .item:hover + * {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(40deg);
+}
+
+.list-cards .item:hover + * + * {
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(20deg);
+}
+
+.list-cards .item:hover + * + * + * {
+  filter: brightness(0.2);
+  transform: translateZ(30px) rotateY(10deg);
+}
+
+.list-cards .item:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-40deg);
+}
+
+.list-cards .item:has(+ * + *:hover) {
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(-20deg);
+}
+
+.list-cards .item:has(+ * + * + *:hover) {
+  filter: brightness(0.2);
+  transform: translateZ(30px) rotateY(-10deg);
+}
+
+/* Responsive settings */
+@media screen and (max-width: 768px) {
+  main .item {
+    width: 150px;
+    height: 225px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  main .list-cards {
+    gap: 0.5rem;
+    flex-wrap: wrap; /* Permite que las cards se envuelvan en pantallas pequeñas */
+    justify-content: center;
+  }
+}
+
+/* Navigation buttons */
+#prev,
+#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #eee9;
+  background-color: #eee5;
+  color: #eee;
+  font-size: x-large;
+  font-family: "dunbar-tall", sans-serif;
+  cursor: pointer;
+  z-index: 15;
+}
+
+#prev {
+  left: 20px;
+}
+
+#next {
+  right: 20px;
+}
+
+/* Animations */
+@keyframes toActive {
+  from {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes toOut {
+  from {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+.carousel .item.active img.fruit {
+  animation: toActive 0.5s ease-in-out 1;
+}
+
+.carousel .item.hidden img.fruit {
+  animation: toOut 0.8s ease-in-out 1;
+  top: -100%;
+  opacity: 0;
+}
+
+.carousel .item.active .content {
+  animation: toActive 0.8s ease-in-out 1;
+}
+
+.carousel .item.hidden .content {
+  opacity: 0;
+}
+
+.carousel.right .item.active img.fruit {
+  animation: toActivePrev 0.5s ease-in-out 1;
+}
+
+.carousel.right .item.hidden img.fruit {
+  animation: toOut 0.8s ease-in-out 1;
+  top: 100%;
+  opacity: 0;
+}
+
+.carousel.right .item.active .content {
+  animation: toActivePrev 0.8s ease-in-out 1;
+}
+
+@keyframes toActivePrev {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+/* Mockup styles */
+:root {
+  --width-mockup: calc(371px / 1.5);
+  --height-mockup: calc(673px / 1.5);
+}
+
+.mockup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  --left: 0%;
+  transform: translate(-50%, -50%);
+  height: var(--height-mockup);
+  width: var(--width-mockup);
+  background: url(img/mockup.png) 0 0 no-repeat,
+    url(img/listSoda.png) var(--left) 0;
+  background-size: auto 100%;
+  background-blend-mode: multiply;
+  -webkit-mask-image: url(img/mockup.png);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: auto 100%;
+  transition: background 0.5s;
+  max-width: 100%; /* Asegura que el mockup no cause overflow */
+}
+
+.leaves {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  background-image: url(img/leaves.png);
+  background-size: 100%;
+  top: calc((50% - (var(--height-mockup) / 1.7)));
+  left: calc((50% + (var(--width-mockup) / 5)));
+}
+
+.shadow {
+  width: var(--width-mockup);
+  height: 100px;
+  background-color: #0008;
+  border-radius: 50%;
+  position: absolute;
+  top: calc((50% + (var(--height-mockup) / 2)));
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(20px);
+}
+
+@media screen and (max-width: 768px) {
+  .carousel .item .content {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  .carousel .item img.fruit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  main .list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
