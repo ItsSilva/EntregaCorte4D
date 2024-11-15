@@ -6,8 +6,8 @@
 
 body {
   margin: 0;
-  overflow-x: hidden; /* Previene scroll horizontal en todo el body */
-  width: 100%; /* Asegura que el body tome el ancho completo */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 header {
@@ -20,7 +20,7 @@ header {
   box-sizing: border-box;
   position: relative;
   z-index: 1;
-  width: 100%; /* Asegura que el header tome el ancho completo */
+  width: 100%;
 }
 
 header div {
@@ -49,7 +49,7 @@ header ul {
 
 /* Carousel specific styles */
 .carousel {
-  width: 100%; /* Cambiado de 100vw a 100% */
+  width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -111,9 +111,9 @@ header ul {
 main {
   padding: 2rem;
   background: #fff;
-  overflow: hidden; /* Cambiado de overflow-x: auto a overflow: hidden */
+  overflow: hidden;
   width: 100%;
-  box-sizing: border-box; /* Asegura que el padding no añada al ancho */
+  box-sizing: border-box;
 }
 
 main .list-cards {
@@ -123,7 +123,7 @@ main .list-cards {
   padding: 1rem;
   min-width: min-content;
   margin: 0 auto;
-  max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+  max-width: 100%;
 }
 
 main .item {
@@ -201,7 +201,7 @@ main .item img {
 
   main .list-cards {
     gap: 0.5rem;
-    flex-wrap: wrap; /* Permite que las cards se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
@@ -309,7 +309,7 @@ main .item img {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: auto 100%;
   transition: background 0.5s;
-  max-width: 100%; /* Asegura que el mockup no cause overflow */
+  max-width: 100%;
 }
 
 .leaves {
