@@ -115,7 +115,7 @@ main {
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
 }
 
 main .list-cards {
@@ -604,7 +604,7 @@ p {
 .contact-image {
   position: absolute;
   right: 0.001%;
-  top: 50%;
+  top: -10%;
   transform: translateY(-55%);
   width: 440px;
   height: 500px;
