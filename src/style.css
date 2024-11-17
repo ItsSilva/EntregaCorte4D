@@ -8,6 +8,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   width: 100%;
+  background: #0c0910;
 }
 
 header {
@@ -114,6 +115,7 @@ main {
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 4rem;
 }
 
 main .list-cards {
@@ -453,6 +455,10 @@ section {
   overflow: hidden;
 }
 
+.characters-section {
+  margin-top: 4rem;
+}
+
 .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -460,10 +466,6 @@ section {
   align-items: center;
   gap: 4rem;
 }
-
-/* .content-wrapper.reverse {
-  flex-direction: row-reverse;
-} */
 
 .content-wrapper.centered {
   flex-direction: column;
@@ -522,25 +524,28 @@ p {
 
 .contact-section {
   background-color: #0c0910;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   color: #fff;
   overflow: hidden;
-  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
 }
 
 .contact-card {
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(178, 0, 28, 0.1),
+    rgba(178, 0, 28, 0.8)
+  );
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.05)
-  );
   border-radius: 24px;
   padding: 2.5rem;
   position: relative;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact-avatar {
@@ -583,14 +588,13 @@ p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   color: #eee;
-  max-width: 70%;
+  max-width: 50%;
 }
 
 .read-more {
   color: #b2001c;
   text-decoration: none;
   font-weight: 700;
-  margin-left: 0.5rem;
 }
 
 .read-more:hover {
@@ -599,12 +603,12 @@ p {
 
 .contact-image {
   position: absolute;
-  right: 2rem;
+  right: 0.001%;
   top: 50%;
-  transform: translateY(-50%);
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
+  transform: translateY(-55%);
+  width: 440px;
+  height: 500px;
+  border-radius: 24px;
 }
 
 .contact-image img {
@@ -612,11 +616,20 @@ p {
   height: 100%;
   object-fit: cover;
   filter: drop-shadow(0 0 20px rgba(178, 0, 28, 0.3));
+  -webkit-mask-image: linear-gradient(to top, transparent 5%, black 20%);
+  border-radius: 0 0 24px 0;
 }
 
 @media screen and (max-width: 768px) {
   .contact-card {
     padding: 1.5rem;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(
+      120deg,
+      rgba(178, 0, 28, 0.8),
+      rgba(178, 0, 28, 0.1)
+    );
   }
 
   .contact-title {
