@@ -10,6 +10,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" type="image/png" href="img/VortexLogo.png" />
   </head>
   <body>
@@ -49,22 +51,28 @@
     </div>
 
     <main>
-      <div class="title">
-        <h1><span>SPEED</span> UP TIME</h1>
-      </div>
+      <section data-aos="fade-up" data-aos-duration="1000">
+        <div class="title">
+          <h1><span>SPEED</span> UP TIME</h1>
+        </div>
 
-      <div class="list-cards">
-        <div class="item"><img src="img/2.png" alt="Umbrax Card" /></div>
-        <div class="item"><img src="img/4.png" alt="Noctis Card" /></div>
-        <div class="item"><img src="img/1.png" alt="Chronox Card" /></div>
-        <div class="item"><img src="img/5.png" alt="Aether Card" /></div>
-        <div class="item"><img src="img/3.png" alt="Ardex Card" /></div>
-      </div>
+        <div class="list-cards">
+          <div class="item"><img src="img/2.png" alt="Umbrax Card" /></div>
+          <div class="item"><img src="img/4.png" alt="Noctis Card" /></div>
+          <div class="item"><img src="img/1.png" alt="Chronox Card" /></div>
+          <div class="item"><img src="img/5.png" alt="Aether Card" /></div>
+          <div class="item"><img src="img/3.png" alt="Ardex Card" /></div>
+        </div>
+      </section>
 
       <!-- Characters Section -->
       <section class="characters-section">
         <div class="content-wrapper">
-          <div class="text-content">
+          <div
+            class="text-content"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <h2>TIME <span>KEEPERS</span></h2>
             <p>
               From the depths of forgotten realms, five enigmatic entities
@@ -78,7 +86,12 @@
               the energy that transcends reality.
             </p>
           </div>
-          <div class="animation-container">
+          <div
+            class="animation-container"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
             <!-- Placeholder for Lottie animation -->
             <img
               src="/api/placeholder/500/500"
@@ -91,14 +104,23 @@
       <!-- About Section -->
       <section class="about-section">
         <div class="content-wrapper reverse">
-          <div class="animation-container">
+          <div
+            class="animation-container"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <!-- Placeholder for Lottie animation -->
             <img
               src="/api/placeholder/500/500"
               alt="Brand Story Animation Placeholder"
             />
           </div>
-          <div class="text-content">
+          <div
+            class="text-content"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
             <h2>UNLEASH THE <span>VORTEX</span></h2>
             <p>
               Forged from the clash of surreal visions and defiant art, Vortex
@@ -116,28 +138,37 @@
 
       <!-- Contact Section -->
       <section class="contact-section">
-        <div class="contact-card">
-          <div class="contact-avatar">
-            <img src="img/VortexLogo.png"Vortex Logo" />
+        <div class="contact-card" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="contact-avatar" data-aos="fade-down" data-aos-delay="200">
+            <img src="img/VortexLogo.png" alt="Vortex Logo" />
             <span class="avatar-name">Vortex Energy</span>
           </div>
 
-          <h2 class="contact-title">JOIN US <span>TRANSCEND TIME</span></h2>
+          <h2 class="contact-title" data-aos="fade-up" data-aos-delay="400">
+            JOIN US <span>TRANSCEND TIME</span>
+          </h2>
 
-          <p class="contact-description">
+          <p
+            class="contact-description"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             Step into the realm where time bends and energy awakens. Partner
             with us and become part of an extraordinary movement that blends
-            bold flavors and enigmatic visions. Let’s redefine boundaries and
+            bold flavors and enigmatic visions. Let's redefine boundaries and
             create experiences that defy the ordinary. Connect now and be part
             of our journey.
           </p>
 
-          <p class="contact-description">
+          <p
+            class="contact-description"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
             <a href="#" class="read-more">Click here for contact information</a>
           </p>
 
-          <div class="contact-image">
-            <!-- Placeholder for the AI robot image -->
+          <div class="contact-image" data-aos="fade-up" data-aos-delay="1000">
             <img src="img/6.png" alt="Keeper image" />
           </div>
         </div>
