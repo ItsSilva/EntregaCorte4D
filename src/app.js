@@ -46,3 +46,10 @@ function changeCarousel() {
 let refreshInterval = setInterval(() => {
   next.click();
 }, 3000);
+
+// Initialize AOS
+AOS.init({
+  // once: true, // The animation only happens once
+  offset: 120, // Offset (in px) from original trigger point
+  easing: "ease-out-cubic", // Default easing function
+});
